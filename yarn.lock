@@ -3911,10 +3911,10 @@ signal-exit@^3.0.0:
   resolved "https://registry.yarnpkg.com/signal-exit/-/signal-exit-3.0.2.tgz#b5fdc08f1287ea1178628e415e25132b73646c6d"
   integrity sha1-tf3AjxKH6hF4Yo5BXiUTK3NkbG0=
 
-slate-history@^0.54.6:
-  version "0.54.6"
-  resolved "https://registry.yarnpkg.com/slate-history/-/slate-history-0.54.6.tgz#a2dcb948ed5b54dcea7e712ad314e1a5fcb797ca"
-  integrity sha512-42QF8n1tCtiKHLvuZrqtVWPJnekAfFY64bV+NAKaHBKxUuCChsNCQQ6LOlSA6wL2oOHTNkvszW8AVW0WGsXqYQ==
+slate-history@^0.57.1:
+  version "0.57.1"
+  resolved "https://registry.yarnpkg.com/slate-history/-/slate-history-0.57.1.tgz#2938537f3f95768a69460ec5035be0333216c278"
+  integrity sha512-pSUmGcIzFJ1ClaF2S5dFm7TBS30ZG3sqkwAowTxvD0+jafG/2I3N6M6M0anhkgBEGMU1rdNQqX4O6b/qKUJPgg==
   dependencies:
     immer "^5.0.0"
     is-plain-object "^3.0.0"

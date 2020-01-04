@@ -1,6 +1,7 @@
 import React, { useCallback, useMemo, useState } from 'react';
 import compose from 'lodash/fp/compose';
 import { Editable, withReact, Slate } from 'slate-react';
+import {hotkeys} from '~/plugins/hotkeys';
 import { createEditor } from 'slate';
 import { withHistory } from 'slate-history';
 import { HoverMenu } from '~/components/HoverMenu/HoverMenu';
@@ -17,6 +18,12 @@ type Props = {
   onChange(value): void;
   value: any;
 };
+
+const hotkeysList = {
+  'mod+b': 'bold',
+  'mod+i': 'italic',
+  'mod+u': 'underline',
+}
 
 export const ShelfEditor = (props: Props) => {
   const { 
@@ -42,14 +49,17 @@ export const ShelfEditor = (props: Props) => {
     []
   );
 
+  const onKeyDown = useCallback(hotkeys(editor, hotkeysList), []);
+
   return (
     <Slate editor={editor} value={value} onChange={onChange}>
       <HoverMenu />
       <Editable
-        renderElement={renderElement}
-        renderLeaf={renderLeaf}
         spellCheck
         autoFocus
+        renderElement={renderElement}
+        renderLeaf={renderLeaf}
+        onKeyDown={onKeyDown}
       />
     </Slate>
   );

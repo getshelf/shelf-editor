@@ -1,0 +1,11 @@
+.wrapper {
+  display: inline-flex;  
+}
+
+.input {
+  font-size: 20px;
+}
+
+.is-checked {
+  opacity: 0.6;
+}

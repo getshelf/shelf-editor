@@ -37,11 +37,11 @@ export const withShortcuts = (editor: Editor) => {
           { match: n => Editor.isBlock(editor, n) }
         );
 
-        if (type === 'list-item') {
+        if (type === 'list-item' || type === 'check-list-item') {
           const list = { type: 'bulleted-list', children: [] }
 
           Transforms.wrapNodes(editor, list, {
-            match: n => n.type === 'list-item',
+            match: n => n.type === type,
           })
         }
 
@@ -63,7 +63,7 @@ export const withShortcuts = (editor: Editor) => {
       if (match) {
         const [block, path] = match;
         const start = Editor.start(editor, path);
-        console.log(path);
+
         if (block.type !== 'paragraph' && Point.equals(selection.anchor, start)) {
           let type = block.type;
 

@@ -10,7 +10,7 @@ const LIST_TYPES = ['numbered-list', 'bulleted-list', 'checklist'];
 export const RichTextEditor = {
   toggleMark: toggleMark,
 
-  toggleBlock: toggleBlock(LIST_TYPES)
+  // toggleBlock: toggleBlock(LIST_TYPES)
 };
 
 export const Element = props => {

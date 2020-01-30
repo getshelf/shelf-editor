@@ -9,15 +9,11 @@ interface IState {
 const initialValue = [
   {
     type: 'title',
-    children: [
-      { text: 'Title' }
-    ]
+    children: [{ text: 'Title' }]
   },
   {
     type: 'bulleted-list',
-    children: [
-      { type: 'list-item', children: [{text: 'first item'}]}
-    ]
+    children: [{ type: 'list-item', children: [{ text: 'first item' }] }]
   },
   {
     type: 'paragraph',
@@ -29,7 +25,8 @@ const initialValue = [
       { text: 'bold', bold: true },
       {
         text:
-          ', or add a semantically rendered block quote in the middle of the page, like this:'
+          ', or add a semantically rendered block quote in the middle of the page, like this:',
+        italic: true
       }
     ]
   },
@@ -40,11 +37,6 @@ const initialValue = [
   {
     type: 'paragraph',
     children: [{ text: 'Try it out for yourself!' }]
-  },
-  {
-    type: 'check-list-item',
-    checked: true,
-    children: [{ text: 'Check list item example'}]
   }
 ];
 
@@ -59,21 +51,25 @@ class Demo extends React.Component<any, IState> {
 
   render() {
     const { value } = this.state;
-    
+
     return (
       <div style={{ width: '800px', margin: '200px auto' }}>
-        <ShelfEditor value={value} onChange={this.handleChange} onTitleChange={this.handleTitleChange} />
+        <ShelfEditor
+          value={value}
+          onChange={this.handleChange}
+          onTitleChange={this.handleTitleChange}
+        />
       </div>
     );
   }
 
-  handleChange = (value) => {
+  handleChange = value => {
     this.setState({ value });
   };
 
   handleTitleChange = (title: string) => {
-    console.log('Title:', title)
-  }
+    console.log('Title:', title);
+  };
 }
 
 render(<Demo />, document.getElementById('root'));

@@ -2,6 +2,7 @@ const path = require('path');
 // const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const config = {
   target: 'web',
@@ -29,9 +30,10 @@ const config = {
           'style-loader',
           {
             loader: 'css-loader',
-            query: {
-              modules: true,
-              sourceMap: true
+            options: {
+              localsConvention: 'camelCase',
+              sourceMap: true,
+              modules: true
             }
           }
         ]
@@ -39,6 +41,9 @@ const config = {
     ]
   },
   plugins: [
+    new MiniCssExtractPlugin({
+      filename: '[hash].css'
+    }),
     new HtmlWebpackPlugin({
       template: './src/index.html'
     })

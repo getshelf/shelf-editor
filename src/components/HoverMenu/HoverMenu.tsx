@@ -75,11 +75,11 @@ const HoverButton = (props: HoverButtonProps) => {
 
   const handleMouseDown = useCallback((event) => {
     event.preventDefault();
-    if (isInline) {
-      RichTextEditor.toggleMark(editor, type)
-    } else {
-      RichTextEditor.toggleBlock(editor, type);
-    }
+    // if (isInline) {
+    //   RichTextEditor.toggleMark(editor, type)
+    // } else {
+    //   RichTextEditor.toggleBlock(editor, type);
+    // }
   }, [type, isInline])
 
   return (
